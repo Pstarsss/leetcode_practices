@@ -1,10 +1,5 @@
 package questions;
 
-import com.sun.deploy.util.ArrayUtil;
-import com.sun.deploy.util.StringUtils;
-
-import java.util.Arrays;
-
 /**
  * @author zhenghai yang
  * @date 2021-08-19
