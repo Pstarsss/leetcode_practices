@@ -1,5 +1,5 @@
 // 输入一个数字正整数数字， 求出第一个大于它的回文数 数字。
-
+// 
 function isReverseNumber(num: number): boolean{
     const num1 = num.toString().split('').join('');
     const num2 = num.toString().split('').reverse().join('');
