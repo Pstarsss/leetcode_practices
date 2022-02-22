@@ -2,7 +2,7 @@
  * @Author: xingpan 
  * @Date: 2021-10-09 16:09:20 
  * @Last Modified by: xingpan
- * @Last Modified time: 2021-10-09 16:24:47
+ * @Last Modified time: 2021-10-11 11:00:33
  */
 
 function Foo(who) {
@@ -12,7 +12,6 @@ function Foo(who) {
 Foo.prototype.identify = function() {
     return `I am ${this.me}`;
 }
-
 function Bar(who) {
     Foo.call(this, who);
 }
