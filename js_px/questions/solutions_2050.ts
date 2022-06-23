@@ -2,7 +2,7 @@
  * @Author: xingpan 
  * @Date: 2021-09-02 19:26:56 
  * @Last Modified by: xingpan
- * @Last Modified time: 2021-09-02 19:27:46
+ * @Last Modified time: 2022-06-23 13:50:35
  */
 
 /*
@@ -21,10 +21,10 @@ import {ListNode} from '../structure/ListNode';
 function getKthFromEnd(head: ListNode | null, k: number): ListNode | null {
     if (head === null) return null
     let obj = [];
-    const valid = (val) => ![null, undefined].includes(val);
-    while (valid(head) && valid(head.val)) {
+    const valid = (val: any) => ![null, undefined].includes(val);
+    while (valid(head?.val)) {
         obj.push(head);
-        head = valid(head.next) ? head.next : null;
+        head = valid(head?.next) ? (head?.next || null) : null;
     };
     return obj[obj.length - k];
 };

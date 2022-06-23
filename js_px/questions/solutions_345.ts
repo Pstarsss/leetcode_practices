@@ -9,7 +9,7 @@ function reverseVowels(s: string): string {
         if(!result.length) break;
         
         if(vowelArr.includes(arr[i])) {
-            arr[i] = result.shift();
+            arr[i] = result.shift() || '';
         } 
 
     }

@@ -2,7 +2,7 @@
  * @Author: xingpan 
  * @Date: 2021-09-02 16:25:55 
  * @Last Modified by: xingpan
- * @Last Modified time: 2021-09-02 16:27:11
+ * @Last Modified time: 2022-06-23 13:53:48
  */
 
 /* 
@@ -30,7 +30,7 @@ function merge(intervals: number[][]): number[][] {
     let result = [];
     for (let i = 0; i < copyIntervals.length;i++) {
         let temp = copyIntervals[i];
-        let temp2 = result[result.length - 1];
+        let temp2: any = result[result.length - 1];
         if (temp2 && temp[0] <= temp2[1]) {
             if (temp[0] === temp2[1]) {
                 temp2 = [temp2[0], temp[1]];
