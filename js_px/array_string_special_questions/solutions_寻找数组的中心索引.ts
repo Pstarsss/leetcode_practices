@@ -2,7 +2,7 @@
  * @Author: xingpan 
  * @Date: 2021-09-01 10:48:47 
  * @Last Modified by: xingpan
- * @Last Modified time: 2021-09-01 10:51:40
+ * @Last Modified time: 2022-06-22 15:10:24
  */
 
 /*
@@ -36,7 +36,7 @@
 */
 
 // 解决题目思路：  算出给定数组的总和， 在循环判断  在每次去减去循环的积累值count， 去判断此时是否相等；
-
+// 1, 7, 3, 6, 5, 6
 function pivotIndex(nums: number[]): number {
     let count = 0;  // 数组左侧累加值
     let sum = 0; // 数组总值
@@ -51,4 +51,21 @@ function pivotIndex(nums: number[]): number {
     }
     return -1;
 };
+
+
+// 时间复杂度 O(N) 最坏情况全部遍历后依然无结果
+// 空间复杂度 O(2) 声明两个变量
+function solution(nums: number[]): number {
+    let sum = 0;
+    let leftSum = 0; // 起始位置 左侧数字之和0
+    nums.forEach(item => sum += item);
+    for (let i = 0;i < nums.length; i++) {
+        sum -= nums[i];
+        if (sum === leftSum) {
+            return i;
+        }
+        leftSum += nums[i];
+    }
+    return -1;
+}
 
