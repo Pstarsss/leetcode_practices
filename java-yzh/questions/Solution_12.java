@@ -36,7 +36,9 @@ public class Solution_12 {
     public static void main(String[] args) {
         Solution_12 solution = new Solution_12();
         char[][] board = {{'a','b','c','e'},{'s','f','c','s'},{'a','d','e','e'}};
-        String word = "abcced";
+        char[][] board1 = {{'a','b'},{'c','d'}};
+        String word = "abcceb";
+        String word1 = "abcd";
         System.out.println(solution.exist(board, word));
     }
 
@@ -56,18 +58,7 @@ public class Solution_12 {
 
         char[] words = word.toCharArray();
 
-        List<Pair<Integer, Integer>> entryList = indexMap.get(words[0]);
-        if(null == entryList){
-            return false;
-        }
-        if(words.length <= 1){
-            return true;
-        }
-        boolean flag = true;
-        for (Pair<Integer, Integer> entry : entryList) {
-            flag = search(1,words,entry.getKey(),entry.getValue());
-        }
-        return flag;
+       return search(0,words,0,0);
     }
 
     public boolean search(int start,char[] words,int x,int y){
@@ -81,10 +72,14 @@ public class Solution_12 {
         }
         boolean flag = false;
         for (Pair<Integer, Integer> pair : entryList) {
-            if((pair.getKey()==x+1&&pair.getValue()==y) || (pair.getKey()==x&&pair.getValue()==y+1) || (pair.getKey()==x&&pair.getValue()==y-1) || (pair.getKey()==x-1&&pair.getValue()==y)){
-                flag = flag || search(start+1,words,pair.getKey(),pair.getValue());
+            if(start == 0 || (pair.getKey()==x+1&&pair.getValue()==y) || (pair.getKey()==x&&pair.getValue()==y+1) || (pair.getKey()==x&&pair.getValue()==y-1) || (pair.getKey()==x-1&&pair.getValue()==y)){
+                flag = search(start+1,words,pair.getKey(),pair.getValue());
             }else{
-                return false;
+                flag = false;
+            }
+
+            if(flag){
+                return flag;
             }
         }
         return flag;
